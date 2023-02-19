@@ -35,8 +35,8 @@ def main():
     if i =="F":
         j = input()
         with open(j,"r") as x:
-            text = x.readline().strip()
-        else:
+            text = x.readline().strip()   
+    else:
             text = input()
             mismatch = find_mismatch(text)
             print (mismatch)
