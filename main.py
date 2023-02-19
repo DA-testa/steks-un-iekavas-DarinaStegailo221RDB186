@@ -31,24 +31,23 @@ def find_mismatch(text):
     return "Success"
 
 def main():
-    # Printing answer, write your code here
-    i = input("F or I")
-    if "F" in i:
-        file = input("Enter file name: ")
-        with open(file, "r", encoding="latinl") as f:
-            text = f.read()
-        mismatch = find_mismatch(text)
-        if mismatch == "Success":
-            print("Success")
-        else:
-            print(mismatch)
-    elif "I" in i:
-        text = input()
-        mismatch = find_mismatch(text)
-        if mismatch == "Sucess":
-            print("Success")
-        else:
-            print(mismatch)
+        do=input("F or I")
+        if "F" in do:
+            name = input("Enter file name: ")
+            with open(name, "r", encoding="latinl") as file:
+                text=file.read()
+            mismatch = find_mismatch(text)
+            if mismatch == "Success":
+                print("Success")
+            else:
+                print(mismatch)
+        elif "I" in do:
+            text = input()
+            mismatch = find_mismatch(text)
+            if mismatch == "Sucess":
+                print("Success")
+            else:
+                print(mismatch)
 
 if __name__ == "__main__":
     main()
