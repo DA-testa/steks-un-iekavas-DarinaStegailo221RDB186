@@ -32,10 +32,16 @@ def find_mismatch(text):
             return "Success"
 
 def main():
-    text = input()
-    mismatch = find_mismatch(text)
     # Printing answer, write your code here
-    print(mismatch)
+    i = input("F" or "I")
+    if i == "F":
+        text = input()
+        mismatch = find_mismatch(text)
+        print(mismatch)
+    else:
+        text = input()
+        mismatch = find_mismatch(text)
+        print(mismatch)
 
 if __name__ == "__main__":
     main() 
