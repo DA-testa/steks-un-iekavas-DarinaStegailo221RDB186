@@ -33,9 +33,9 @@ def main():
      # Printing answer, write your code here
     i = input("F or I")
     if i =="F":
-        j = input()
-        with open(j,"r") as x:
-            text = x.readline().strip()   
+        f = input("Enter file name:")
+        with open(f,"r") as file:
+            text = file.readline().strip()   
     else:
         text = input()
         mismatch = find_mismatch(text)
