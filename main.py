@@ -21,25 +21,35 @@ def find_mismatch(text):
             # Process closing bracket, write your code here
             if not opening_brackets_stack:
                 return i + 1
-            p = opening_brackets_stack.pop()
-            if (p.char == '('and next !=')') or (p.char == '['and next !=']') or (p.char == '{'and next !='}'):
-                return i+1       
+            obs = opening_brackets_stack[-1]
+            if not are_matching(obs.char, next):
+                return i+1
+            opening_brackets_stack.pop()
+
         if opening_brackets_stack:
-            return opening_brackets_stack[0].position + 1
-        return "Success"
+            return obs.position
+        else:
+            return "Success"
 
 
-def main():
-     # Printing answer, write your code here
+def main(): 
     i = input("F or I")
-    if i =="F":
-        f = input("Enter file name:")
-        with open(f,"r") as file:
-            text = file.readline().strip()   
-    else:
+    if "F" in i:
+        file = input("Enter file name: ")
+        with open(file, "r", encoding="latinl") as f:
+            text=f.read()
+        mismatch = find_mismatch(text)
+        if mismatch == "Success":
+            print("Success")
+        else:
+            print(mismatch)
+    elif "I" in i:
         text = input()
         mismatch = find_mismatch(text)
-        print (mismatch)
+        if mismatch == "Sucess":
+            print("Success")
+        else:
+            print(mismatch)
 
 if __name__ == "__main__":
     main()   
