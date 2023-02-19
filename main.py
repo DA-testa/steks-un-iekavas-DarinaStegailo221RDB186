@@ -29,7 +29,7 @@ def find_mismatch(text):
 
 def main():
     # Printing answer, write your code here
-    i = input("F or I")
+    i = input()
     if i == "F":
         file = input("Enter file name")
         with open(file, "r") as f:
