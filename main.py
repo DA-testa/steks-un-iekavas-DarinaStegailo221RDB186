@@ -14,42 +14,30 @@ def find_mismatch(text):
     for i, next in enumerate(text):
         if next in "([{":
             # Process opening bracket, write your code here
-            b = Bracket (i, next)
-            opening_brackets_stack.append(b)
-
+            opening_brackets_stack.append(Bracket (i, next))
         if next in ")]}":
             # Process closing bracket, write your code here
             if not opening_brackets_stack:
                 return i + 1
-            obs = opening_brackets_stack[-1]
-            if not are_matching(obs.char, next):
+            if not are_matching(opening_brackets_stack[-1].char, next):
                 return i+1
             opening_brackets_stack.pop()
-
         if opening_brackets_stack:
-            return obs.position
+            return opening_brackets_stack[-1].position
         else:
             return "Success"
 
-
-def main(): 
+def main():
+    # Printing answer, write your code here
     i = input("F or I")
-    if "F" in i:
-        file = input("Enter file name: ")
-        with open(file, "r", encoding="latinl") as f:
-            text=f.read()
-        mismatch = find_mismatch(text)
-        if mismatch == "Success":
-            print("Success")
-        else:
-            print(mismatch)
-    elif "I" in i:
+    if i == "F":
+        file = input("Enter file name")
+        with open(file, "r") as f:
+            text = f.readline().strip()
+    else:
         text = input()
         mismatch = find_mismatch(text)
-        if mismatch == "Sucess":
-            print("Success")
-        else:
-            print(mismatch)
+        print(mismatch)
 
 if __name__ == "__main__":
-    main()   
+    main() 
