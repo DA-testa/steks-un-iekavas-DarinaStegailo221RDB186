@@ -37,9 +37,9 @@ def main():
         with open(j,"r") as x:
             text = x.readline().strip()   
     else:
-            text = input()
-            mismatch = find_mismatch(text)
-            print (mismatch)
+        text = input()
+        mismatch = find_mismatch(text)
+        print (mismatch)
 
 if __name__ == "__main__":
     main()   
